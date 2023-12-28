@@ -44,16 +44,15 @@ clean-pyc: ## remove Python file artifacts
 clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
-	rm -fr .pytest_cache
 
 lint: ## check style with flake8
 	flake8 django_datadog_logger tests
 
 test: ## run tests quickly with the default Python
-	DJANGO_SETTINGS_MODULE=tests.settings python setup.py test
+	DJANGO_SETTINGS_MODULE=tests.settings python -m unittest
 
 coverage: ## check code coverage quickly with the default Python
-	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source django_datadog_logger setup.py test
+	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source django_datadog_logger -m unittest discover
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
