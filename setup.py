@@ -27,7 +27,7 @@ test_requirements = []
 setup(
     author="Jacek B-J",
     author_email="contact@jankow.ski",
-    python_requires=">=3.8,<=3.12",
+    python_requires=">=3.8,<=3.12.*",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
