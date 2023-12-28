@@ -5,4 +5,4 @@ flake8==6.*
 coverage==7.*
 Sphinx==7.*
 twine==4.*
-
+setuptools=69.*
