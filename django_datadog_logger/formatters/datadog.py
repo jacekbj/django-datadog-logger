@@ -9,7 +9,6 @@ from django.core.exceptions import DisallowedHost
 from django.http.request import split_domain_port
 from django.urls import resolve, NoReverseMatch, Resolver404
 from rest_framework.compat import unicode_http_header
-from rest_framework.exceptions import AuthenticationFailed
 
 from django_datadog_logger.encoders import SafeJsonEncoder
 from django_datadog_logger.celery import get_task_name, get_celery_request
@@ -145,7 +144,7 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
             if hasattr(record, "status_code"):
                 log_entry_dict["error.kind"] = record.status_code
                 log_entry_dict["error.message"] = record.msg
-            else:
+            elif record.exc_info[0] is not None:
                 log_entry_dict["error.kind"] = record.exc_info[0].__name__
                 for msg in traceback.format_exception_only(record.exc_info[0], record.exc_info[1]):
                     log_entry_dict["error.message"] = msg.strip()
