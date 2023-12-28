@@ -52,7 +52,7 @@ test: ## run tests quickly with the default Python
 	DJANGO_SETTINGS_MODULE=tests.settings python -m unittest
 
 coverage: ## check code coverage quickly with the default Python
-	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source django_datadog_logger setup.py test
+	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source django_datadog_logger -m unittest discover
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
