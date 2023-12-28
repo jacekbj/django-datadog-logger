@@ -42,7 +42,6 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '__pycache__' -exec rm -fr {} +
 
 clean-test: ## remove test and coverage artifacts
-	rm -fr .tox/
 	rm -f .coverage
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
@@ -52,9 +51,6 @@ lint: ## check style with flake8
 
 test: ## run tests quickly with the default Python
 	DJANGO_SETTINGS_MODULE=tests.settings python setup.py test
-
-test-all: ## run tests on every Python version with tox
-	tox
 
 coverage: ## check code coverage quickly with the default Python
 	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source django_datadog_logger setup.py test

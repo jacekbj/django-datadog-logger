@@ -25,18 +25,19 @@ test_requirements = []
 
 
 setup(
-    author="Lenno Nagel",
-    author_email="lenno@namespace.ee",
-    python_requires=">=3.6",
+    author="Jacek B-J",
+    author_email="contact@jankow.ski",
+    python_requires=">=3.8,<=3.11",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     description="Django DataDog Logger integration package.",
     install_requires=requirements,
@@ -49,7 +50,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/namespace-ee/django-datadog-logger",
+    url="https://github.com/jacekbj/django-datadog-logger",
     version="0.6.2",
     zip_safe=False,
 )
