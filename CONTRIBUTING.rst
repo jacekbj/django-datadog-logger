@@ -30,8 +30,8 @@ Ready to contribute? Here's how to set up `ddl` for local development.
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the
-   tests. Other versions of Python are checked with CI::
+5. When you're done making changes, check that your changes pass ruff and the
+   tests. This will be replaced with pre-commit. Other versions of Python are checked with CI::
 
     $ make lint
     $ make test

@@ -35,7 +35,6 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = [
-    "flake8==6.*",
     "coverage==7.*",
     "setuptools==69.*",
     "ruff"

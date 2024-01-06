@@ -45,8 +45,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
 
-lint: ## check style with flake8
-	flake8 ddl tests
+lint: ## check style
 	ruff check ddl tests
 
 lint-fix:
