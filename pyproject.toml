@@ -36,7 +36,7 @@ dynamic = ["version"]
 [project.optional-dependencies]
 dev = [
     "coverage==7.*",
-    "setuptools==69.*",
+    "setuptools",
     "ruff"
 ]
 build = [
