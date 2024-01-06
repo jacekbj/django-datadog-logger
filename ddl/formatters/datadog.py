@@ -2,7 +2,6 @@ import datetime
 import re
 import traceback
 
-import pytz
 import json_log_formatter
 from django.conf import settings
 from django.core.exceptions import DisallowedHost
@@ -55,7 +54,9 @@ def determine_version(request):
 @not_recursive
 def get_wsgi_request_auth(wsgi_request):
     try:
-        if getattr(wsgi_request, "auth", None) is not None and isinstance(wsgi_request.auth, dict):
+        if getattr(wsgi_request, "auth", None) is not None and isinstance(
+            wsgi_request.auth, dict
+        ):
             return wsgi_request.auth
     except Exception:  # NOQA
         return None
@@ -75,7 +76,9 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
             "logger.name": record.name,
             "logger.thread_name": record.threadName,
             "logger.method_name": record.funcName,
-            "syslog.timestamp": pytz.utc.localize(datetime.datetime.utcfromtimestamp(record.created)).isoformat(),
+            "syslog.timestamp": datetime.datetime.utcfromtimestamp(record.created)
+            .replace(tzinfo=datetime.timezone.utc)
+            .isoformat(),
             "syslog.severity": record.levelname,
         }
 
@@ -103,7 +106,9 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
             log_entry_dict["http.url_details.path"] = wsgi_request.path_info
             log_entry_dict["http.url_details.queryString"] = wsgi_request.GET.dict()
             log_entry_dict["http.url_details.scheme"] = wsgi_request.scheme
-            log_entry_dict["http.url_details.view_name"] = resolver_match.view_name if resolver_match else None
+            log_entry_dict["http.url_details.view_name"] = (
+                resolver_match.view_name if resolver_match else None
+            )
             log_entry_dict["http.method"] = wsgi_request.method
             log_entry_dict["http.accept"] = wsgi_request.META.get("HTTP_ACCEPT")
             log_entry_dict["http.referer"] = wsgi_request.META.get("HTTP_REFERER")
@@ -131,10 +136,14 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
 
             if user:
                 log_entry_dict["usr.id"] = getattr(user, "pk", None)
-                log_entry_dict["usr.name"] = getattr(user, getattr(user, "USERNAME_FIELD", "username"), None)
+                log_entry_dict["usr.name"] = getattr(
+                    user, getattr(user, "USERNAME_FIELD", "username"), None
+                )
                 log_entry_dict["usr.email"] = getattr(user, "email", None)
 
-            if getattr(wsgi_request, "session", None) is not None and getattr(wsgi_request.session, "session_key"):
+            if getattr(wsgi_request, "session", None) is not None and getattr(
+                wsgi_request.session, "session_key"
+            ):
                 log_entry_dict["usr.session_key"] = wsgi_request.session.session_key
 
         if hasattr(settings, "DATADOG_TRACE") and "TAGS" in settings.DATADOG_TRACE:
@@ -146,7 +155,9 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
                 log_entry_dict["error.message"] = record.msg
             elif record.exc_info[0] is not None:
                 log_entry_dict["error.kind"] = record.exc_info[0].__name__
-                for msg in traceback.format_exception_only(record.exc_info[0], record.exc_info[1]):
+                for msg in traceback.format_exception_only(
+                    record.exc_info[0], record.exc_info[1]
+                ):
                     log_entry_dict["error.message"] = msg.strip()
             log_entry_dict["error.stack"] = self.formatException(record.exc_info)
 
@@ -160,7 +171,10 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
         if celery_request is not None:
             log_entry_dict["celery.request_id"] = celery_request.id
             log_entry_dict["celery.task_name"] = get_task_name(celery_request)
-        elif record.name in {"celery.app.trace", "celery.worker.strategy"} and "data" in extra:
+        elif (
+            record.name in {"celery.app.trace", "celery.worker.strategy"}
+            and "data" in extra
+        ):
             if "id" in extra["data"]:
                 log_entry_dict["celery.request_id"] = extra["data"]["id"]
             if "name" in extra["data"]:
@@ -176,7 +190,11 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
 
     def get_datadog_attributes(self, record):
         """Helper to extract dd.* attributes from the log record."""
-        return {attr_name: record.__dict__[attr_name] for attr_name in record.__dict__ if attr_name.startswith("dd.")}
+        return {
+            attr_name: record.__dict__[attr_name]
+            for attr_name in record.__dict__
+            if attr_name.startswith("dd.")
+        }
 
     def get_wsgi_request(self):
         return ddl.wsgi.get_wsgi_request()
@@ -194,5 +212,6 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
         return {
             attr_name: record.__dict__[attr_name]
             for attr_name in record.__dict__
-            if attr_name not in json_log_formatter.BUILTIN_ATTRS.union(EXCLUDE_FROM_EXTRA_ATTRS)
+            if attr_name
+            not in json_log_formatter.BUILTIN_ATTRS.union(EXCLUDE_FROM_EXTRA_ATTRS)
         }

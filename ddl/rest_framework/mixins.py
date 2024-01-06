@@ -38,17 +38,23 @@ class ActionLogMixin:
             log_entity[attr] = repr(value)
 
         message = "{} {}".format(ModelClass.__name__, action)
-        extra = {"{}.{}".format(ModelClass._meta.app_label, ModelClass.__name__): log_entity}
+        extra = {
+            "{}.{}".format(ModelClass._meta.app_label, ModelClass.__name__): log_entity
+        }
         return message, extra
 
     def perform_create(self, serializer):
         super().perform_create(serializer)
-        message, extra = self.get_create_log_entity(serializer, serializer.instance, "created")
+        message, extra = self.get_create_log_entity(
+            serializer, serializer.instance, "created"
+        )
         logger.info(message, extra=extra)
 
     def perform_update(self, serializer):
         super().perform_update(serializer)
-        message, extra = self.get_create_log_entity(serializer, serializer.instance, "updated")
+        message, extra = self.get_create_log_entity(
+            serializer, serializer.instance, "updated"
+        )
         logger.info(message, extra=extra)
 
     def perform_destroy(self, instance):
@@ -57,5 +63,9 @@ class ActionLogMixin:
             super().perform_destroy(instance)
             logger.info(
                 "{} deleted".format(type(instance).__name__),
-                extra={"{}.{}".format(instance._meta.app_config.label, type(instance).__name__): msg},
+                extra={
+                    "{}.{}".format(
+                        instance._meta.app_config.label, type(instance).__name__
+                    ): msg
+                },
             )

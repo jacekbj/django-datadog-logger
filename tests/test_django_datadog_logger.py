@@ -19,15 +19,15 @@ class DjangoDatadogLoggerTestCase(unittest.TestCase):
         attribute of the LogRecord is a tuple of (None, None, None).
         """
         record = logging.LogRecord(
-            'foo',
+            "foo",
             logging.ERROR,
-            'foo.py',
+            "foo.py",
             42,
-            'This is an error',
+            "This is an error",
             None,
-            (None, None, None)
+            (None, None, None),
         )
         formatter = DataDogJSONFormatter()
-        json_record = formatter.json_record('Foo', {}, record)
+        json_record = formatter.json_record("Foo", {}, record)
 
-        self.assertEqual(json_record.get('error.kind'), None)
+        self.assertEqual(json_record.get("error.kind"), None)
