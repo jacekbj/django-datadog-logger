@@ -2,10 +2,14 @@
 Credits
 =======
 
+Original Author
+---------------
+* Lenno Nagel <lenno@namespace.ee>
+
 Development Lead
 ----------------
 
-* Lenno Nagel <lenno@namespace.ee>
+* Jacek Broński-Jankowski <contact@jankow.ski>
 
 Contributors
 ------------

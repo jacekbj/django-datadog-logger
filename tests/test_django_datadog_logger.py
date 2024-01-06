@@ -1,10 +1,10 @@
-"""Tests for `django_datadog_logger` package."""
+"""Tests for `ddl` package."""
 import logging
 import unittest
 
 from django.conf import settings
 
-from django_datadog_logger.formatters.datadog import DataDogJSONFormatter
+from ddl.formatters.datadog import DataDogJSONFormatter
 
 
 class DjangoDatadogLoggerTestCase(unittest.TestCase):
@@ -19,15 +19,15 @@ class DjangoDatadogLoggerTestCase(unittest.TestCase):
         attribute of the LogRecord is a tuple of (None, None, None).
         """
         record = logging.LogRecord(
-            'foo',
+            "foo",
             logging.ERROR,
-            'foo.py',
+            "foo.py",
             42,
-            'This is an error',
+            "This is an error",
             None,
-            (None, None, None)
+            (None, None, None),
         )
         formatter = DataDogJSONFormatter()
-        json_record = formatter.json_record('Foo', {}, record)
+        json_record = formatter.json_record("Foo", {}, record)
 
-        self.assertEqual(json_record.get('error.kind'), None)
+        self.assertEqual(json_record.get("error.kind"), None)

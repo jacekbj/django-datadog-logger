@@ -18,13 +18,21 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-            python-version: [ "3.8", "3.9", "3.10", "3.11", "3.12" ]
-            django-version: [ "4", "5"]
+            python-version: [ "3.7", "3.8", "3.9", "3.10", "3.11", "3.12" ]
+            django-version: [ "3", "4", "5"]
             exclude:
+                - python-version: "3.7"
+                  django-version: "4"
+                - python-version: "3.7"
+                  django-version: "5"
                 - python-version: "3.8"
                   django-version: "5"
                 - python-version: "3.9"
                   django-version: "5"
+                - python-version: "3.11"
+                  django-version: "3"
+                - python-version: "3.12"
+                  django-version: "3"
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -34,9 +42,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install flake8
-        pip install -r requirements_dev.txt
         pip install -e .
+        pip install .[dev]
         pip install Django==${{ matrix.django-version }}
     - name: Lint
       run: |

@@ -1,8 +1,0 @@
--r requirements.txt
-bump2version==1.*
-wheel==0.42.*
-flake8==6.*
-coverage==7.*
-Sphinx==7.*
-twine==4.*
-setuptools==69.*
