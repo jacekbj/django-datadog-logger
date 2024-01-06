@@ -35,7 +35,7 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install -e .
-        pip install .[test]
+        pip install .[dev]
         pip install Django==${{ matrix.django-version }}
     - name: Lint
       run: |
