@@ -98,7 +98,6 @@ Configure LOGGERS in your Django settings file:
             "django_auth_ldap": {"level": "DEBUG", "handlers": ["session"], "propagate": False},
             "ddl.middleware.error_log": {"handlers": ["error"], "level": "INFO", "propagate": False},
             "ddl.middleware.request_log": {"handlers": ["request"], "level": "INFO", "propagate": False},
-            "ddl.rest_framework": {"handlers": ["application"], "level": "INFO", "propagate": False},
         },
     }
     DDL_EXTRA_INCLUDE = r"^(ddl|my_project)(|\..+)$"

@@ -7,7 +7,6 @@ from django.conf import settings
 from django.core.exceptions import DisallowedHost
 from django.http.request import split_domain_port
 from django.urls import resolve, NoReverseMatch, Resolver404
-from rest_framework.compat import unicode_http_header
 
 from ddl.encoders import SafeJsonEncoder
 from ddl.celery import get_task_name, get_celery_request
@@ -38,17 +37,6 @@ def get_client_ip(request):
         return x_forwarded_for.split(",")[0] or None
     else:
         return request.META.get("REMOTE_ADDR") or None
-
-
-def determine_version(request):
-    if hasattr(request, "version"):
-        if request.version is not None:
-            return str(request.version)
-    elif hasattr(request, "accepted_types"):
-        for t in request.accepted_types:
-            if t.params.get("version") is not None:
-                return unicode_http_header(t.params.get("version"))
-    return None
 
 
 @not_recursive
@@ -113,7 +101,6 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
             log_entry_dict["http.accept"] = wsgi_request.META.get("HTTP_ACCEPT")
             log_entry_dict["http.referer"] = wsgi_request.META.get("HTTP_REFERER")
             log_entry_dict["http.useragent"] = wsgi_request.META.get("HTTP_USER_AGENT")
-            log_entry_dict["http.request_version"] = determine_version(wsgi_request)
 
             if hasattr(wsgi_request, "request_id"):
                 log_entry_dict["http.request_id"] = wsgi_request.request_id
