@@ -9,7 +9,7 @@ authors = [
 ]
 description = "Django logging utilities for Datadog"
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.7"
 keywords = ["django", "logging", "datadog", "logging middleware"]
 license = {text = "MIT"}
 classifiers = [
@@ -19,6 +19,8 @@ classifiers = [
     "Operating System :: OS Independent",
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
