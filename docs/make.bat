@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=django_datadog_logger
+set SPHINXPROJ=ddl
 
 if "%1" == "" goto help
 

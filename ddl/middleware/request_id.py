@@ -2,8 +2,8 @@ import re
 import time
 import uuid
 
-from django_datadog_logger.wsgi import local
-from django_datadog_logger.local import release_local
+from ddl.wsgi import local
+from ddl.local import release_local
 
 
 def generate_request_id():

@@ -10,14 +10,14 @@ from django.http.request import split_domain_port
 from django.urls import resolve, NoReverseMatch, Resolver404
 from rest_framework.compat import unicode_http_header
 
-from django_datadog_logger.encoders import SafeJsonEncoder
-from django_datadog_logger.celery import get_task_name, get_celery_request
-import django_datadog_logger.celery
-import django_datadog_logger.wsgi
+from ddl.encoders import SafeJsonEncoder
+from ddl.celery import get_task_name, get_celery_request
+import ddl.celery
+import ddl.wsgi
 
 # those fields are excluded from extra dict
 # and remains acceptable in record
-from django_datadog_logger.recursion import not_recursive, RecursionDetected
+from ddl.recursion import not_recursive, RecursionDetected
 
 EXCLUDE_FROM_EXTRA_ATTRS = {
     "user",
@@ -168,8 +168,8 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
             if "runtime" in extra["data"]:
                 log_entry_dict["duration"] = extra["data"]["runtime"] * 1000000000
 
-        if hasattr(settings, "DJANGO_DATADOG_LOGGER_EXTRA_INCLUDE"):
-            if re.match(getattr(settings, "DJANGO_DATADOG_LOGGER_EXTRA_INCLUDE"), record.name):
+        if hasattr(settings, "DDL_EXTRA_INCLUDE"):
+            if re.match(getattr(settings, "DDL_EXTRA_INCLUDE"), record.name):
                 log_entry_dict.update(extra)
 
         return log_entry_dict
@@ -179,7 +179,7 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
         return {attr_name: record.__dict__[attr_name] for attr_name in record.__dict__ if attr_name.startswith("dd.")}
 
     def get_wsgi_request(self):
-        return django_datadog_logger.wsgi.get_wsgi_request()
+        return ddl.wsgi.get_wsgi_request()
 
     def to_json(self, record):
         return self.json_lib.dumps(record, cls=SafeJsonEncoder)

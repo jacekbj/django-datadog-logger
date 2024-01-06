@@ -1,4 +1,4 @@
-from django_datadog_logger.local import Local  # NOQA
+from ddl.local import Local  # NOQA
 
 local = Local()
 

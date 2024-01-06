@@ -1,3 +1,59 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ddl"
+authors = [
+    {name = "Jacek Broński-Jankowski", email = "contact@jankow.ski"},
+]
+description = "Django logging utilities for Datadog"
+readme = "README.rst"
+requires-python = ">=3.8"
+keywords = ["django", "logging", "datadog", "logging middleware"]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "JSON-log-formatter",
+    "Django ; python_version >= '3.10'",
+    "Django<5 ; python_version < '3.10'",
+]
+dynamic = ["version"]
+zip-safe = false
+
+[project.optional-dependencies]
+dev = [
+    "flake8==6.*",
+    "coverage==7.*",
+    "setuptools==69.*",
+]
+build = [
+    "wheel==0.42.*",
+    "twine==4.*",
+    "Sphinx==7.*"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jacekbj/django-datadog-logger"
+"Bug Tracker" = "https://github.com/jacekbj/django-datadog-logger/issues"
+
+[tool.setuptools_scm]
+
+[tool.bumpversion]
+# TODO https://github.com/callowayproject/bump-my-version
+
 [tool.black]
 line-length = 120
 target-version = ["py38", "py39", "py310", "py311", "py312"]

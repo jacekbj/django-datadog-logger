@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = django_datadog_logger
+SPHINXPROJ    = ddl
 SOURCEDIR     = .
 BUILDDIR      = _build
 
