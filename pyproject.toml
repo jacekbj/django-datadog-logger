@@ -48,8 +48,8 @@ build = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/jacekbj/django-datadog-logger"
-"Bug Tracker" = "https://github.com/jacekbj/django-datadog-logger/issues"
+"Homepage" = "https://github.com/jacekbj/django-dd-logger"
+"Bug Tracker" = "https://github.com/jacekbj/django-dd-logger/issues"
 
 [tool.distutils.bdist_wheel]
 universal = true
