@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install Django DataDog Logger, run this command in your terminal:
+To install Django DD Logger, run this command in your terminal:
 
 .. code-block:: console
 
     $ pip install django_dd_logger
 
-This is the preferred method to install Django DataDog Logger, as it will always install the most recent stable release.
+This is the preferred method to install Django DD Logger, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,7 +26,7 @@ you through the process.
 From sources
 ------------
 
-The sources for Django DataDog Logger can be downloaded from the `Github repo`_.
+The sources for Django DD Logger can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ pip install .
 
 
-.. _Github repo: https://github.com/jacekbj/django-datadog-logger
-.. _tarball: https://github.com/jacekbj/django-datadog-logger/tarball/master
+.. _Github repo: https://github.com/jacekbj/django-dd-logger
+.. _tarball: https://github.com/jacekbj/django-dd-logger/tarball/master

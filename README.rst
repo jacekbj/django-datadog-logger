@@ -1,5 +1,5 @@
 =====================
-Django Datadog Logger
+Django DD Logger
 =====================
 
 
@@ -60,22 +60,10 @@ Configure LOGGERS in your Django settings file:
                 "filename": os.path.join(API_LOG_ROOT, "api.application.log"),
                 "formatter": "json",
             },
-            "state": {
-                "level": API_LOG_STATE_LEVEL,
-                "class": "logging.FileHandler",
-                "filename": os.path.join(API_LOG_ROOT, "api.state.log"),
-                "formatter": "json",
-            },
             "request": {
                 "level": API_LOG_REQUEST_LEVEL,
                 "class": "logging.FileHandler",
                 "filename": os.path.join(API_LOG_ROOT, "api.request.log"),
-                "formatter": "json",
-            },
-            "session": {
-                "level": API_LOG_SESSION_LEVEL,
-                "class": "logging.FileHandler",
-                "filename": os.path.join(API_LOG_ROOT, "api.session.log"),
                 "formatter": "json",
             },
             "error": {
@@ -88,14 +76,7 @@ Configure LOGGERS in your Django settings file:
         "loggers": {
             "": {"handlers": ["console", "error"], "level": "DEBUG", "propagate": True},
             "ddtrace": {"handlers": ["error"], "level": "ERROR", "propagate": False},
-            "django.db.backends": {"handlers": ["error"], "level": "ERROR", "propagate": False},
-            "twilio": {"handlers": ["error"], "level": "ERROR", "propagate": False},
             "my_project": {"handlers": ["application"], "level": "INFO", "propagate": False},
-            "my_project.throttling": {"handlers": ["application"], "level": "DEBUG", "propagate": False},
-            "my_project.vehicles.viewsets.state": {"handlers": ["state"], "level": "INFO", "propagate": False},
-            "my_project.accounts.session": {"handlers": ["session"], "level": "DEBUG", "propagate": False},
-            "my_project.session": {"handlers": ["session"], "level": "DEBUG", "propagate": False},
-            "django_auth_ldap": {"level": "DEBUG", "handlers": ["session"], "propagate": False},
             "django_dd_logger.middleware.error_log": {"handlers": ["error"], "level": "INFO", "propagate": False},
             "django_dd_logger.middleware.request_log": {"handlers": ["request"], "level": "INFO", "propagate": False},
         },
