@@ -63,3 +63,15 @@ A reminder for the maintainers on how to deploy.
 Make sure all your changes are committed (including an entry in HISTORY.rst).
 Then create a Pull Request on Github with one of the following labels: patch, minor or major.
 Release will be handled manually by the maintainers.
+
+Release Process
+---------------
+
+1. Update the version in `dddlogger/__init__.py` and `pyproject.toml` to a new version number following semantic versioning.
+2. Update `HISTORY.rst` with the new version number, date and changes.
+3. Commit the changes with the title "Release version X.Y.Z".
+4. Create a git tag for the new version: `git tag -a X.Y.Z -m "Version X.Y.Z"`
+5. Push the changes and tag: `git push --follow-tags`
+6. Create a new release on GitHub with the release notes from `HISTORY.rst`.
+7. Publish the new release to PyPI: `make release`.
+
