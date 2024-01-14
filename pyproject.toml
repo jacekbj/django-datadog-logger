@@ -40,9 +40,12 @@ dev = [
     "ruff"
 ]
 build = [
-    "wheel==0.42.*",
+    "Sphinx==7.*",
+    "build",
+    "bump-my-version==0.*",
+    "setuptools-scm==8.*",
     "twine==4.*",
-    "Sphinx==7.*"
+    "wheel==0.42.*",
 ]
 
 [project.urls]
