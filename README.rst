@@ -10,10 +10,9 @@ Django DD Logger
         :target: https://django-dd-logger.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
-.. image:: https://pyup.io/repos/github/jacekbj/django_dd_logger/shield.svg
-     :target: https://pyup.io/repos/github/jacekbj/dd;/
-     :alt: Security Status
+.. image:: https://img.shields.io/github/actions/workflow/status/jacekbj/django-dd-logger/pr-checks.yml?branch=master&label=CI&logo=github&style=flat-square
+        :target: https://github.com/jacekbj/django-dd-logger/actions/workflows/pr-checks.yml?query=branch%3Amaster
+        :alt: Tests Status
 
 
 
