@@ -106,3 +106,6 @@ ENV/
 
 # macOS Desktop Services Store
 .DS_Store
+
+# setuptools-scm
+ddl/_version.py

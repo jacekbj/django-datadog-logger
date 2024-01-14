@@ -19,8 +19,8 @@ Ready to contribute? Here's how to set up `ddl` for local development.
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ python install .
-    $ python install .[dev]
+    $ pip install .
+    $ pip install .[dev]
 
     For zsh: `pip install ."[dev]"`
 
@@ -62,4 +62,4 @@ Deploying
 A reminder for the maintainers on how to deploy.
 Make sure all your changes are committed (including an entry in HISTORY.rst).
 Then create a Pull Request on Github with one of the following labels: patch, minor or major.
-Github will bump version, create a new tag and deploy to PyPi if tests pass.
+Release will be handled manually by the maintainers.

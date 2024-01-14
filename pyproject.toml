@@ -40,9 +40,11 @@ dev = [
     "ruff"
 ]
 build = [
-    "wheel==0.42.*",
+    "Sphinx==7.*",
+    "build",
+    "setuptools-scm==8.*",
     "twine==4.*",
-    "Sphinx==7.*"
+    "wheel==0.42.*",
 ]
 
 [project.urls]
@@ -50,9 +52,10 @@ build = [
 "Bug Tracker" = "https://github.com/jacekbj/django-datadog-logger/issues"
 
 [tool.setuptools_scm]
+version_file = "ddl/_version.py"
 
-[tool.bumpversion]
-# TODO https://github.com/callowayproject/bump-my-version
+[tool.distutils.bdist_wheel]
+universal = true
 
 [tool.black]
 line-length = 120
@@ -66,3 +69,4 @@ exclude = '''
 
 )/
 '''
+
