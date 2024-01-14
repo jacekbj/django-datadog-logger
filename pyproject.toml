@@ -40,11 +40,13 @@ dev = [
     "ruff"
 ]
 build = [
-    "Sphinx==7.*",
     "build",
     "setuptools-scm==8.*",
     "twine==4.*",
     "wheel==0.42.*",
+]
+docs = [
+    "Sphinx==7.*",
 ]
 
 [project.urls]
