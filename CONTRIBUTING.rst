@@ -62,4 +62,4 @@ Deploying
 A reminder for the maintainers on how to deploy.
 Make sure all your changes are committed (including an entry in HISTORY.rst).
 Then create a Pull Request on Github with one of the following labels: patch, minor or major.
-Github will bump version, create a new tag and deploy to PyPi if tests pass.
+Release will be handled manually by the maintainers.
