@@ -53,6 +53,7 @@ build = [
 "Bug Tracker" = "https://github.com/jacekbj/django-datadog-logger/issues"
 
 [tool.setuptools_scm]
+version_file = "ddl/_version.py"
 
 [tool.bumpversion]
 # TODO https://github.com/callowayproject/bump-my-version
