@@ -56,7 +56,10 @@ build = [
 version_file = "ddl/_version.py"
 
 [tool.bumpversion]
-# TODO https://github.com/callowayproject/bump-my-version
+tag = true
+
+[tool.distutils.bdist_wheel]
+universal = true
 
 [tool.black]
 line-length = 120
@@ -70,3 +73,4 @@ exclude = '''
 
 )/
 '''
+
