@@ -10,12 +10,12 @@ helps, and credit will always be given.
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `ddl` for local development.
+Ready to contribute? Here's how to set up `django_dd_logger` for local development.
 
-1. Fork the `ddl` repo on GitHub.
+1. Fork the `django_dd_logger` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/ddl.git
+    $ git clone git@github.com:your_name_here/django_dd_logger.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
@@ -67,7 +67,7 @@ Release will be handled manually by the maintainers.
 Release Process
 ---------------
 
-1. Update the version in `dddlogger/__init__.py` and `pyproject.toml` to a new version number following semantic versioning.
+1. Update the version in `django_dd_logger/__init__.py` and `pyproject.toml` to a new version number following semantic versioning.
 2. Update `HISTORY.rst` with the new version number, date and changes.
 3. Commit the changes with the title "Release version X.Y.Z".
 4. Create a git tag for the new version: `git tag -a X.Y.Z -m "Version X.Y.Z"`

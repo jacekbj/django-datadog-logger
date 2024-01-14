@@ -1,6 +1,6 @@
 from functools import wraps
 
-from ddl.local import Local, release_local  # NOQA
+from django_dd_logger.local import Local, release_local  # NOQA
 
 local = Local()
 

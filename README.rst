@@ -3,15 +3,15 @@ Django DataDog Logger
 =====================
 
 
-.. image:: https://img.shields.io/pypi/v/ddl.svg
-        :target: https://pypi.python.org/pypi/ddl
+.. image:: https://img.shields.io/pypi/v/django_dd_logger.svg
+        :target: https://pypi.python.org/pypi/django_dd_logger
 
-.. image:: https://readthedocs.org/projects/ddl/badge/?version=latest
-        :target: https://ddl.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/django_dd_logger/badge/?version=latest
+        :target: https://django_dd_logger.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/jacekbj/ddl/shield.svg
+.. image:: https://pyup.io/repos/github/jacekbj/django_dd_logger/shield.svg
      :target: https://pyup.io/repos/github/jacekbj/dd;/
      :alt: Security Status
 
@@ -23,7 +23,7 @@ This is a fork of https://django-datadog-logger.readthedocs.io/en/latest/.
 
 
 * Free software: MIT license
-* Documentation: https://ddl.readthedocs.io.
+* Documentation: https://django_dd_logger.readthedocs.io.
 
 
 Quick start
@@ -34,10 +34,10 @@ Set up request id tracking (in front) and logging middlewares (at the end):
 .. code-block:: python
 
     MIDDLEWARE = [
-        "ddl.middleware.request_id.RequestIdMiddleware",
+        "django_dd_logger.middleware.request_id.RequestIdMiddleware",
         # ...
-        "ddl.middleware.error_log.ErrorLoggingMiddleware",
-        "ddl.middleware.request_log.RequestLoggingMiddleware",
+        "django_dd_logger.middleware.error_log.ErrorLoggingMiddleware",
+        "django_dd_logger.middleware.request_log.RequestLoggingMiddleware",
     ]
 
 Configure LOGGERS in your Django settings file:
@@ -50,7 +50,7 @@ Configure LOGGERS in your Django settings file:
         "disable_existing_loggers": False,
         "formatters": {
             "console": {"format": "{levelname} {message}", "style": "{"},
-            "json": {"()": "ddl.formatters.datadog.DataDogJSONFormatter"},
+            "json": {"()": "django_dd_logger.formatters.datadog.DataDogJSONFormatter"},
         },
         "handlers": {
             "console": {"level": "INFO", "class": "logging.StreamHandler", "formatter": "console"},
@@ -96,11 +96,11 @@ Configure LOGGERS in your Django settings file:
             "my_project.accounts.session": {"handlers": ["session"], "level": "DEBUG", "propagate": False},
             "my_project.session": {"handlers": ["session"], "level": "DEBUG", "propagate": False},
             "django_auth_ldap": {"level": "DEBUG", "handlers": ["session"], "propagate": False},
-            "ddl.middleware.error_log": {"handlers": ["error"], "level": "INFO", "propagate": False},
-            "ddl.middleware.request_log": {"handlers": ["request"], "level": "INFO", "propagate": False},
+            "django_dd_logger.middleware.error_log": {"handlers": ["error"], "level": "INFO", "propagate": False},
+            "django_dd_logger.middleware.request_log": {"handlers": ["request"], "level": "INFO", "propagate": False},
         },
     }
-    DDL_EXTRA_INCLUDE = r"^(ddl|my_project)(|\..+)$"
+    DDL_EXTRA_INCLUDE = r"^(django_dd_logger|my_project)(|\..+)$"
 
 Add Celery logger configuration and request_id tracking decorator to tasks:
 
@@ -112,14 +112,14 @@ Add Celery logger configuration and request_id tracking decorator to tasks:
     from celery.result import AsyncResult
     from celery.signals import after_setup_logger, after_setup_task_logger
     from django.conf import settings
-    from ddl.celery import store_celery_request
+    from django_dd_logger.celery import store_celery_request
 
     logger = logging.getLogger(__name__)
 
 
     @after_setup_logger.connect
     def on_after_setup_logger(logger, *args, **kwargs):
-        from ddl.formatters.datadog import DataDogJSONFormatter
+        from django_dd_logger.formatters.datadog import DataDogJSONFormatter
 
         if settings.API_LOG_CELERY_JSON:
             formatter = DataDogJSONFormatter()
@@ -130,7 +130,7 @@ Add Celery logger configuration and request_id tracking decorator to tasks:
 
     @after_setup_task_logger.connect
     def on_after_setup_task_logger(logger, *args, **kwargs):
-        from ddl.formatters.datadog import DataDogJSONFormatter
+        from django_dd_logger.formatters.datadog import DataDogJSONFormatter
 
         if settings.API_LOG_CELERY_JSON:
             formatter = DataDogJSONFormatter()
@@ -175,7 +175,7 @@ There is a helper to look for those attributes and add them automatically to the
 
     # Configure logger with DataDogJSONFormatter
     import logging
-    from ddl.formatters.datadog import DataDogJSONFormatter
+    from django_dd_logger.formatters.datadog import DataDogJSONFormatter
 
     logger = logging.root
 

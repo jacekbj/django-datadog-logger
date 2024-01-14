@@ -46,24 +46,24 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr htmlcov/
 
 lint: ## check style
-	ruff check ddl tests
+	ruff check django_dd_logger tests
 
 lint-fix:
-	ruff format ddl tests
+	ruff format django_dd_logger tests
 
 test: ## run tests quickly with the default Python
 	DJANGO_SETTINGS_MODULE=tests.settings python -m unittest
 
 coverage: ## check code coverage quickly with the default Python
-	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source ddl -m unittest discover
+	DJANGO_SETTINGS_MODULE=tests.settings coverage run --source django_dd_logger -m unittest discover
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/ddl.rst
+	rm -f docs/django_dd_logger.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ ddl
+	sphinx-apidoc -o docs/ django_dd_logger
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html

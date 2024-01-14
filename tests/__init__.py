@@ -1,1 +1,1 @@
-"""Unit test package for ddl."""
+"""Unit test package for django_dd_logger."""

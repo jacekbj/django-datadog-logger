@@ -1,4 +1,4 @@
-from ddl.local import Local  # NOQA
+from django_dd_logger.local import Local  # NOQA
 
 local = Local()
 

@@ -1,10 +1,10 @@
-"""Tests for `ddl` package."""
+"""Tests for `django_dd_logger` package."""
 import logging
 import unittest
 
 from django.conf import settings
 
-from ddl.formatters.datadog import DataDogJSONFormatter
+from django_dd_logger.formatters.datadog import DataDogJSONFormatter
 
 
 class DjangoDatadogLoggerTestCase(unittest.TestCase):

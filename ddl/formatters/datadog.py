@@ -8,14 +8,14 @@ from django.core.exceptions import DisallowedHost
 from django.http.request import split_domain_port
 from django.urls import resolve, NoReverseMatch, Resolver404
 
-from ddl.encoders import SafeJsonEncoder
-from ddl.celery import get_task_name, get_celery_request
-import ddl.celery
-import ddl.wsgi
+from django_dd_logger.encoders import SafeJsonEncoder
+from django_dd_logger.celery import get_task_name, get_celery_request
+import django_dd_logger.celery
+import django_dd_logger.wsgi
 
 # those fields are excluded from extra dict
 # and remains acceptable in record
-from ddl.recursion import not_recursive, RecursionDetected
+from django_dd_logger.recursion import not_recursive, RecursionDetected
 
 EXCLUDE_FROM_EXTRA_ATTRS = {
     "user",
@@ -184,7 +184,7 @@ class DataDogJSONFormatter(json_log_formatter.JSONFormatter):
         }
 
     def get_wsgi_request(self):
-        return ddl.wsgi.get_wsgi_request()
+        return django_dd_logger.wsgi.get_wsgi_request()
 
     def to_json(self, record):
         return self.json_lib.dumps(record, cls=SafeJsonEncoder)

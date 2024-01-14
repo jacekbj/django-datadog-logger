@@ -3,7 +3,7 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ddl"
+name = "django_dd_logger"
 authors = [
     {name = "Jacek Broński-Jankowski", email = "contact@jankow.ski"},
 ]

@@ -12,7 +12,7 @@ To install Django DataDog Logger, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install ddl
+    $ pip install django_dd_logger
 
 This is the preferred method to install Django DataDog Logger, as it will always install the most recent stable release.
 
