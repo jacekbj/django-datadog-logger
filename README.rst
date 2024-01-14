@@ -7,7 +7,7 @@ Django DD Logger
         :target: https://pypi.python.org/pypi/django-dd-logger
 
 .. image:: https://readthedocs.org/projects/django_dd_logger/badge/?version=latest
-        :target: https://django_dd_logger.readthedocs.io/en/latest/?badge=latest
+        :target: https://django-dd-logger.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
@@ -23,7 +23,7 @@ This is a fork of https://django-datadog-logger.readthedocs.io/en/latest/.
 
 
 * Free software: MIT license
-* Documentation: https://django_dd_logger.readthedocs.io.
+* Documentation: https://django-dd-logger.readthedocs.io.
 
 
 Quick start
