@@ -31,7 +31,7 @@ dependencies = [
     "Django ; python_version >= '3.10'",
     "Django<5 ; python_version < '3.10'",
 ]
-dynamic = ["version"]
+version= "0.6.2"
 
 [project.optional-dependencies]
 dev = [
@@ -50,9 +50,6 @@ build = [
 [project.urls]
 "Homepage" = "https://github.com/jacekbj/django-datadog-logger"
 "Bug Tracker" = "https://github.com/jacekbj/django-datadog-logger/issues"
-
-[tool.setuptools_scm]
-version_file = "ddl/_version.py"
 
 [tool.distutils.bdist_wheel]
 universal = true
