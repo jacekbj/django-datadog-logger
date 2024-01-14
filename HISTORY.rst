@@ -2,6 +2,18 @@
 History
 =======
 
+0.7.0 (2024-01-14)
+------------------
+
+Fixes
+^^^^^
+* Handle passing `exc_info=True` to logger outside of exception context.
+
+Breaking changes
+^^^^^^^^^^^^^^^^
+* Remove support for Django Rest Framework by removing `ActionLogMixin`.
+
+
 0.6.2 (2023-04-27)
 ------------------
 
