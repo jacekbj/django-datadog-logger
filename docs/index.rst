@@ -1,5 +1,5 @@
-Welcome to Django DataDog Logger documentation!
-======================================
+Welcome to Django DD Logger documentation!
+==========================================
 
 .. toctree::
    :maxdepth: 2
@@ -11,6 +11,7 @@ Welcome to Django DataDog Logger documentation!
    contributing
    authors
    history
+   modules
 
 Indices and tables
 ==================
