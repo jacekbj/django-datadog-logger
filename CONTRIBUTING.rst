@@ -19,8 +19,8 @@ Ready to contribute? Here's how to set up `ddl` for local development.
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ python install .
-    $ python install .[dev]
+    $ pip install .
+    $ pip install .[dev]
 
     For zsh: `pip install ."[dev]"`
 
