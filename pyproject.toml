@@ -42,7 +42,6 @@ dev = [
 build = [
     "Sphinx==7.*",
     "build",
-    "bump-my-version==0.*",
     "setuptools-scm==8.*",
     "twine==4.*",
     "wheel==0.42.*",
@@ -54,9 +53,6 @@ build = [
 
 [tool.setuptools_scm]
 version_file = "ddl/_version.py"
-
-[tool.bumpversion]
-tag = true
 
 [tool.distutils.bdist_wheel]
 universal = true
