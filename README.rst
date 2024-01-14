@@ -1,10 +1,10 @@
 =====================
-Django DataDog Logger
+Django Datadog Logger
 =====================
 
 
 .. image:: https://img.shields.io/pypi/v/django_dd_logger.svg
-        :target: https://pypi.python.org/pypi/django_dd_logger
+        :target: https://pypi.python.org/pypi/django-dd-logger
 
 .. image:: https://readthedocs.org/projects/django_dd_logger/badge/?version=latest
         :target: https://django_dd_logger.readthedocs.io/en/latest/?badge=latest
