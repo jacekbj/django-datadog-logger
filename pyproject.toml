@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -36,12 +36,11 @@ version= "0.7.1"
 [project.optional-dependencies]
 dev = [
     "coverage==7.*",
-    "setuptools",
     "ruff"
 ]
 build = [
     "build",
-    "setuptools-scm==8.*",
+    "setuptools",
     "twine==4.*",
     "wheel==0.42.*",
 ]
