@@ -2,6 +2,15 @@
 History
 =======
 
+0.7.1 (2024-01-14)
+------------------
+
+Fixes
+^^^^^
+* Do not log exceptions handled explicitly by Django `[#7] <PR7>`_.
+
+.. _PR7: https://github.com/jacekbj/django-dd-logger/pull/7
+
 0.7.0 (2024-01-14)
 ------------------
 
