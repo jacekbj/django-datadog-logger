@@ -38,7 +38,7 @@ Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/jacekbj/django-datadog-logger/tarball/master
+    $ curl -OJL https://github.com/jacekbj/django-dd-logger/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
